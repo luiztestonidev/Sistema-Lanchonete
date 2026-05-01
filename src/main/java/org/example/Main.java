@@ -1,5 +1,4 @@
 package org.example;
-import java.text.CharacterIterator;
 import java.util.Scanner;
 
 public class Main {
@@ -49,7 +48,7 @@ public class Main {
                     novoPedido(scanner);
                     break;
                 case 2:
-                    cardapioLaches(scanner);
+                    cardapioLanches(scanner);
                     break;
                 case 3:
                     calcularTroco(scanner);
@@ -149,7 +148,7 @@ public class Main {
 
     }
 
-    static void cardapioLaches(Scanner scanner) {
+    static void cardapioLanches(Scanner scanner) {
 
         int escolhaSubMenu;
 
@@ -164,22 +163,26 @@ public class Main {
 
             switch (escolhaSubMenu) {
                 case 1:
-                    System.out.println("\n1 - TestoBurger Classico" );
-                    System.out.println("2 - TestoBurger Duplo");
+                System.out.println("\n[_-=LANCHES=-_]");
+                for (int i=0; i < 2; i++) {
+                    System.out.printf("Lanches = %s : R$ %.2f%n", lanchesMenu[i], precosLanches[i]);
+                }
                     break;
                 case 2:
-                    System.out.println("\n1 - Batata Frita P");
-                    System.out.println("2 - Batata Frita G");
+                    System.out.println("\n[_-=ACOMPANHAMENTOS=-_]");
+                for (int i=2; i < 4; i++) {
+                    System.out.printf("Acompanhamentos = %s : R$ %.2f%n", lanchesMenu[i], precosLanches[i]);
+                }
                     break;
                 case 3:
-                    System.out.println("\n1 - Refrigerante Lata");
-                    System.out.println("2 - Suco Natural");
-                    System.out.println("3 - Agua");
+                System.out.println("\n[_-=BEBIDAS=-_]");
+                for (int i=4; i < 7; i++) {
+                    System.out.printf("Bebidas = %s : R$ %.2f%n", lanchesMenu[i], precosLanches[i]);
+                }
                     break;
                 case 4:
-                    System.out.println("Voltando ao menu principal ....");
+                System.out.printf("\nVoltando ao menu principal ......\n");
                     break;
-
                 default:
                     System.out.println("Opcao invalida digite novamente");
 
