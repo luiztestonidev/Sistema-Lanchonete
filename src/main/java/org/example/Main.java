@@ -21,8 +21,9 @@ public class Main {
 
     static double[] precosLanches = {22.90, 29.90, 12.00, 18.00, 7.00, 10.00, 4.00};
 
+    static String nomeCliente;
     //VAR Caixa pedidos valor
-    static double caixaGeralPedidos = 0;
+    static double valorAtualPedido = 0;
 
     static int indiceItemSorteio = -1;
 
@@ -51,7 +52,7 @@ public class Main {
                     cardapioLaches(scanner);
                     break;
                 case 3:
-
+                    calcularTroco(scanner);
                     break;
                 case 4:
                     sorteioDoDia();
@@ -69,14 +70,15 @@ public class Main {
     // metodo NOVO-PEDIDO
     static void novoPedido(Scanner scanner) {
 
-        String nomeCliente;
-
         System.out.println("\n_-= NOVO PEDIDO =-_");
         System.out.print("Digite seu nome: ");
         nomeCliente = scanner.nextLine();
 
         //ARRAY Cria espaço para guardar até 100 itens do pedido.
         String[] itensClientePedido = new String[100];
+
+        //Zerar variavel com o valor do pedido feito anteriormente
+        valorAtualPedido = 0;
 
         //VAR Esse número controla quantos itens já foram adicionados comeca com 0 e vai somando.
         int quantidadeItensPedido = 0;
@@ -128,6 +130,7 @@ public class Main {
             itensClientePedido[quantidadeItensPedido] = nomeItemEscolhidoCliente;
             quantidadeItensPedido++;
             valorPedidoDinheiro += valorItemEscolhidoCliente;
+            valorAtualPedido += valorItemEscolhidoCliente;
 
             System.out.println("Deseja adcionar mais itens? (S/N)");
             continuarPedindo = Character.toUpperCase(scanner.next().charAt(0));
@@ -161,7 +164,7 @@ public class Main {
 
             switch (escolhaSubMenu) {
                 case 1:
-                    System.out.println("\n1 - TestoBurger Classico");
+                    System.out.println("\n1 - TestoBurger Classico" );
                     System.out.println("2 - TestoBurger Duplo");
                     break;
                 case 2:
@@ -183,6 +186,29 @@ public class Main {
             }
         } while (escolhaSubMenu != 4);
     }
+
+    static void calcularTroco (Scanner scanner) {
+
+        double valorRecebidoCliente;
+        double trocoCliente;
+
+            System.out.println("\n_-= SISTEMA DE TROCO =-_");
+            System.out.println("Nome do Cliente pedido: " + nomeCliente);
+            System.out.printf("Valor total do pedido: R$ %.2f%n", valorAtualPedido);
+
+            do {
+            System.out.print("Informe o valor recebido do cliente: ");
+            valorRecebidoCliente = scanner.nextDouble();
+
+            if (valorRecebidoCliente < valorAtualPedido) {
+                System.out.println("Valor recebido do cliente e insuficiente!");
+            } else {
+                trocoCliente = valorRecebidoCliente - valorAtualPedido;
+                System.out.printf("Valor do troco para o cliente: R$ %.2f%n", trocoCliente);
+            }
+        } while (valorRecebidoCliente < valorAtualPedido);
+    }
+
     static void sorteioDoDia() {
 
         indiceItemSorteio = (int)(Math.random() * 7);
