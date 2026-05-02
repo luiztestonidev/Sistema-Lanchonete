@@ -1,7 +1,3 @@
-Aqui vai uma versão mais **natural, profissional e com cara de dev de verdade**, mantendo tudo que você já escreveu — só ajustei o tom, clareza e fluidez 👇
-
----
-
 # 🍔 Sistema de Lanchonete (Console)
 
 Sistema desenvolvido em Java com execução via terminal, simulando o fluxo básico de atendimento de uma lanchonete — desde a escolha dos itens até o fechamento do pedido.
