@@ -1,42 +1,47 @@
-# 🍔 Sistema Lanchonete (Console)
+Aqui vai uma versão mais **natural, profissional e com cara de dev de verdade**, mantendo tudo que você já escreveu — só ajustei o tom, clareza e fluidez 👇
 
-Sistema desenvolvido em Java para simular o funcionamento de uma lanchonete via terminal, permitindo a criação de pedidos, consulta de cardápio e aplicação de descontos.
+---
+
+# 🍔 Sistema de Lanchonete (Console)
+
+Sistema desenvolvido em Java com execução via terminal, simulando o fluxo básico de atendimento de uma lanchonete — desde a escolha dos itens até o fechamento do pedido.
 
 ---
 
 ## 📌 Sobre o projeto
 
-Este projeto foi desenvolvido com foco em prática de lógica de programação em Java, utilizando estruturas como arrays, loops, condicionais e métodos.
+Este projeto foi criado com foco em prática de lógica de programação utilizando Java.
+Durante o desenvolvimento, foram aplicados conceitos fundamentais como arrays, estruturas de repetição, condicionais e organização em métodos.
 
-O sistema roda via console e simula um fluxo básico de atendimento em uma lanchonete.
+A proposta é simular, de forma simples e funcional, um sistema de pedidos em ambiente de console.
 
 ---
 
 ## ⚙️ Funcionalidades
 
-* 🧾 Criar novo pedido
-* 🍔 Exibir cardápio completo
-* 📂 Consultar cardápio por categoria
-* 🎲 Sorteio do dia com 20% de desconto em um item
+* 🧾 Criação de novos pedidos
+* 🍔 Exibição do cardápio completo
+* 📂 Consulta de itens por categoria (lanches, acompanhamentos e bebidas)
+* 🎲 Sorteio do dia com aplicação automática de desconto
 * 💰 Cálculo do valor total do pedido
-* 📊 Resumo do pedido (cliente, itens e total)
+* 📊 Resumo final com dados do cliente e itens selecionados
 
 ---
 
 ## 🧠 Regras do sistema
 
 * O usuário pode adicionar múltiplos itens ao pedido
-* O sistema valida códigos inválidos
-* Um item pode receber desconto automático se for sorteado no dia
-* O pedido é armazenado em memória durante a execução
+* O sistema valida entradas inválidas (códigos inexistentes)
+* Um item pode receber desconto automaticamente caso seja o sorteado do dia
+* Os dados do pedido são mantidos em memória durante a execução
 
 ---
 
 ## 🛠️ Tecnologias utilizadas
 
 * Java
-* Entrada de dados com Scanner
-* Lógica de programação estruturada
+* Entrada de dados com `Scanner`
+* Programação estruturada
 
 ---
 
@@ -57,7 +62,7 @@ src/
 ### Pré-requisitos
 
 * Java 17 ou superior
-* IntelliJ IDEA (ou outra IDE)
+* IntelliJ IDEA (ou outra IDE de sua preferência)
 
 ### Passos
 
@@ -69,7 +74,7 @@ git clone https://github.com/luiztestonidev/Sistema-Lanchonete.git
 
 2. Abra o projeto na sua IDE
 
-3. Execute a classe:
+3. Execute a classe principal:
 
 ```
 Main.java
@@ -93,10 +98,10 @@ _-= LANCHES-TESTONI =-_
 ## 📈 Melhorias futuras
 
 * 💾 Integração com banco de dados
-* 🧾 Implementação do cálculo de troco
-* 🌐 Transformar em API REST
-* 🖥️ Interface gráfica (GUI)
-* 📦 Uso de listas (ArrayList) ao invés de arrays fixos
+* 💰 Implementação completa do cálculo de troco
+* 🌐 Evolução para API REST
+* 🖥️ Criação de interface gráfica (GUI)
+* 📦 Substituição de arrays por `ArrayList`
 
 ---
 
@@ -108,4 +113,4 @@ Luiz Testoni
 
 ## ⭐ Observação
 
-Projeto desenvolvido para fins de estudo e prática de lógica de programação em Java.
+Projeto desenvolvido com foco em aprendizado e evolução na lógica de programação utilizando Java.
