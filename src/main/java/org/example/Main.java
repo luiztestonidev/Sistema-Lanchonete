@@ -48,7 +48,7 @@ public class Main {
                     novoPedido(scanner);
                     break;
                 case 2:
-                    cardapioLanches(scanner);
+                    cardapioCategorias(scanner);
                     break;
                 case 3:
                     calcularTroco(scanner);
@@ -57,13 +57,21 @@ public class Main {
                     sorteioDoDia();
                     break;
                 case 5:
-                    System.out.println("Sistema encerrando ......");
+                    System.out.println("Sistema encerrando ...");
                     break;
                 default:
                     System.out.print("Opcao invalida digite novamente");
             }
 
         } while (opcoesMenu != 5);
+    }
+    //metodo para usar no metodo cardapioLanches
+    static void mostrarItens(String titulo, int inicio, int fim) {
+        System.out.println("\n[_-= " + titulo + " =-_]");
+
+        for (int i = inicio; i < fim; i++) {
+            System.out.printf("%d - %s : R$ %.2f%n", codigosMenu[i], lanchesMenu[i], precosLanches[i]);
+        }
     }
 
     // metodo NOVO-PEDIDO
@@ -148,7 +156,7 @@ public class Main {
 
     }
 
-    static void cardapioLanches(Scanner scanner) {
+    static void cardapioCategorias(Scanner scanner) {
 
         int escolhaSubMenu;
 
@@ -163,25 +171,16 @@ public class Main {
 
             switch (escolhaSubMenu) {
                 case 1:
-                System.out.println("\n[_-=LANCHES=-_]");
-                for (int i=0; i < 2; i++) {
-                    System.out.printf("Lanches = %s : R$ %.2f%n", lanchesMenu[i], precosLanches[i]);
-                }
+                mostrarItens("LANCHES",0, 2);
                     break;
                 case 2:
-                    System.out.println("\n[_-=ACOMPANHAMENTOS=-_]");
-                for (int i=2; i < 4; i++) {
-                    System.out.printf("Acompanhamentos = %s : R$ %.2f%n", lanchesMenu[i], precosLanches[i]);
-                }
+                mostrarItens("ACOMPANHAMENTOS",2, 4);
                     break;
                 case 3:
-                System.out.println("\n[_-=BEBIDAS=-_]");
-                for (int i=4; i < 7; i++) {
-                    System.out.printf("Bebidas = %s : R$ %.2f%n", lanchesMenu[i], precosLanches[i]);
-                }
+                mostrarItens("BEBIDAS",4, 7);
                     break;
                 case 4:
-                System.out.printf("\nVoltando ao menu principal ......\n");
+                System.out.println("\nVoltando ao menu principal ...\n");
                     break;
                 default:
                     System.out.println("Opcao invalida digite novamente");
