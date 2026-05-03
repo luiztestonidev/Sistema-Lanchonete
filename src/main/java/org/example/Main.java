@@ -71,7 +71,7 @@ public class Main {
 
         } while (opcoesMenu != 5);
     }
-    //metodo para usar no metodo cardapioLanches
+    //metodo para usar no cardapioLanches
     static void mostrarItens(String titulo, int inicio, int fim) {
         System.out.println("\n[_-= " + titulo + " =-_]");
 
@@ -79,7 +79,14 @@ public class Main {
             System.out.printf("%d - %s : R$ %.2f%n", codigosMenu[i], lanchesMenu[i], precosLanches[i]);
         }
     }
+    //metodo para usar no novoPedido
+    static void mostrarCardapioCompleto() {
+        System.out.println("\n_-= CARDAPIO =-_");
 
+        for (int i = 0; i < codigosMenu.length; i++) {
+            System.out.printf("%d - %s R$ %.2f%n", codigosMenu[i], lanchesMenu[i], precosLanches[i]);
+        }
+    }
     // metodo NOVO-PEDIDO
     static void novoPedido(Scanner scanner) {
 
@@ -107,12 +114,7 @@ public class Main {
         double valorItemEscolhidoCliente;
 
         do {
-            System.out.println("\n_-= CARDAPIO =-_");
-
-            for (int i = 0; i < codigosMenu.length; i++) {
-                System.out.printf("%d - %s R$ %.2f%n", codigosMenu[i], lanchesMenu[i], precosLanches[i]);
-            }
-
+            mostrarCardapioCompleto();
             do {
                 System.out.print("Digite o numero do codigo do item: ");
                 codigoEscolhidoCliente = scanner.nextInt();
