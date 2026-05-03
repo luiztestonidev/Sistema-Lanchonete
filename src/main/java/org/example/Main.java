@@ -39,9 +39,15 @@ public class Main {
             System.out.println("[4] - SORTEIO DO DIA");
             System.out.println("[5] - ENCERRAR SISTEMA");
             System.out.print("Escolha uma opcao: ");
-
-            opcoesMenu = scanner.nextInt();
-            scanner.nextLine();
+            //Sistema validacao escolha menu
+            if (scanner.hasNextInt()) {
+                opcoesMenu = scanner.nextInt();
+                scanner.nextLine();
+            } else {
+                System.out.println("\nEntrada invalida! Somente numeros.");
+                scanner.nextLine();
+                opcoesMenu = 0;
+            }
 
             switch (opcoesMenu) {
                 case 1:
@@ -60,7 +66,7 @@ public class Main {
                     System.out.println("Sistema encerrando ...");
                     break;
                 default:
-                    System.out.print("Opcao invalida digite novamente");
+                    System.out.print("Opcao invalida digite novamente\n");
             }
 
         } while (opcoesMenu != 5);
