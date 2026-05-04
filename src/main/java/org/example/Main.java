@@ -44,7 +44,7 @@ public class Main {
                 opcoesMenu = scanner.nextInt();
                 scanner.nextLine();
             } else {
-                System.out.println("\nEntrada invalida! Somente numeros.");
+                System.out.println("\nEntrada invalida. Digite apenas numeros.");
                 scanner.nextLine();
                 opcoesMenu = 0;
             }
@@ -66,7 +66,7 @@ public class Main {
                     System.out.println("Sistema encerrando ...");
                     break;
                 default:
-                    System.out.print("Opcao invalida digite novamente\n");
+                    System.out.println("Opcao invalida. Tente novamente.\n");
             }
 
         } while (opcoesMenu != 5);
@@ -117,13 +117,21 @@ public class Main {
             mostrarCardapioCompleto();
             do {
                 System.out.print("Digite o numero do codigo do item: ");
-                codigoEscolhidoCliente = scanner.nextInt();
-                scanner.nextLine();
+                //Validação entrada de input
+                if (scanner.hasNextInt()) {
+                    codigoEscolhidoCliente = scanner.nextInt();
+                    scanner.nextLine();
+                } else {
+                    System.out.println("\nEntrada invalida. Digite apenas numeros.");
+                    scanner.nextLine();
+                    codigoEscolhidoCliente = 0;
+                }
+
                 //ESPACO FANTASMA PULAR LINHA
                 System.out.println();
 
                 if (codigoEscolhidoCliente < 1 || codigoEscolhidoCliente > codigosMenu.length) {
-                    System.out.print("Opcao invalida digite novamente!\n");
+                    System.out.print("Tente novamente.\n");
                 }
             } while (codigoEscolhidoCliente < 1 || codigoEscolhidoCliente > codigosMenu.length);
 
@@ -175,7 +183,15 @@ public class Main {
             System.out.println("[3] - Bebidas");
             System.out.println("[4] - Voltar ao menu principal");
             System.out.print("Escolha uma opcao: ");
-            escolhaSubMenu = scanner.nextInt();
+            //Validação de input subMenu
+            if (scanner.hasNextInt()) {
+                escolhaSubMenu = scanner.nextInt();
+                scanner.nextLine();
+            } else {
+                System.out.println("Entrada invalida. Digite apenas numeros.");
+                scanner.nextLine();
+                escolhaSubMenu = 0;
+            }
 
             switch (escolhaSubMenu) {
                 case 1:
@@ -191,7 +207,7 @@ public class Main {
                 System.out.println("\nVoltando ao menu principal ...\n");
                     break;
                 default:
-                    System.out.println("Opcao invalida digite novamente");
+                    System.out.println("Opcao invalida. Tente novamente.");
 
             }
         } while (escolhaSubMenu != 4);
@@ -203,6 +219,12 @@ public class Main {
         double trocoCliente;
 
             System.out.println("\n_-= SISTEMA DE TROCO =-_");
+
+            if (nomeCliente == null) {
+                System.out.println("Nenhum pedido feito ainda.");
+                return;
+            }
+
             System.out.println("Nome do Cliente pedido: " + nomeCliente);
             System.out.printf("Valor total do pedido: R$ %.2f%n", valorAtualPedido);
 
