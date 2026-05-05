@@ -5,6 +5,20 @@ public class Main {
 
     static Scanner scanner = new Scanner(System.in);
 
+    //Metodo controlar input de usuario
+    static int lerInt(Scanner scanner) {
+        System.out.print("Escolha uma opcao: ");
+
+        while (!scanner.hasNextInt()) {
+            System.out.println("Entrada invalida. Digite apenas numeros.");
+            scanner.nextLine();
+            System.out.print("Escolha uma opcao: ");
+        }
+        int numero = scanner.nextInt();
+        scanner.nextLine();
+        return numero;
+    }
+
     // VAR opcoes do menu
     static int opcoesMenu;
 
@@ -38,16 +52,7 @@ public class Main {
             System.out.println("[3] - CALCULAR TROCO");
             System.out.println("[4] - SORTEIO DO DIA");
             System.out.println("[5] - ENCERRAR SISTEMA");
-            System.out.print("Escolha uma opcao: ");
-            //Sistema validacao escolha menu
-            if (scanner.hasNextInt()) {
-                opcoesMenu = scanner.nextInt();
-                scanner.nextLine();
-            } else {
-                System.out.println("\nEntrada invalida. Digite apenas numeros.");
-                scanner.nextLine();
-                opcoesMenu = 0;
-            }
+            opcoesMenu = lerInt(scanner);
 
             switch (opcoesMenu) {
                 case 1:
@@ -182,16 +187,7 @@ public class Main {
             System.out.println("[2] - Acompanhamentos");
             System.out.println("[3] - Bebidas");
             System.out.println("[4] - Voltar ao menu principal");
-            System.out.print("Escolha uma opcao: ");
-            //Validação de input subMenu
-            if (scanner.hasNextInt()) {
-                escolhaSubMenu = scanner.nextInt();
-                scanner.nextLine();
-            } else {
-                System.out.println("Entrada invalida. Digite apenas numeros.");
-                scanner.nextLine();
-                escolhaSubMenu = 0;
-            }
+            escolhaSubMenu = lerInt(scanner);
 
             switch (escolhaSubMenu) {
                 case 1:
