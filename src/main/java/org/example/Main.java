@@ -121,16 +121,8 @@ public class Main {
         do {
             mostrarCardapioCompleto();
             do {
-                System.out.print("Digite o numero do codigo do item: ");
                 //Validação entrada de input
-                if (scanner.hasNextInt()) {
-                    codigoEscolhidoCliente = scanner.nextInt();
-                    scanner.nextLine();
-                } else {
-                    System.out.println("\nEntrada invalida. Digite apenas numeros.");
-                    scanner.nextLine();
-                    codigoEscolhidoCliente = 0;
-                }
+                codigoEscolhidoCliente = lerInt(scanner);
 
                 //ESPACO FANTASMA PULAR LINHA
                 System.out.println();
@@ -160,9 +152,14 @@ public class Main {
             valorPedidoDinheiro += valorItemEscolhidoCliente;
             valorAtualPedido += valorItemEscolhidoCliente;
 
-            System.out.println("Deseja adcionar mais itens? (S/N)");
-            continuarPedindo = Character.toUpperCase(scanner.next().charAt(0));
-            scanner.nextLine();
+            do {
+                System.out.print("Deseja adicionar mais itens? (S/N): ");
+                continuarPedindo = Character.toUpperCase(scanner.next().charAt(0));
+
+                if (continuarPedindo != 'S' && continuarPedindo != 'N') {
+                    System.out.print("Deseja adicionar outro itens? (S/N).");
+                }
+            } while (continuarPedindo != 'S' && continuarPedindo != 'N');
 
         } while (continuarPedindo == 'S');
 
